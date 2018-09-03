@@ -2,7 +2,7 @@
 # coding : utf-8
 import sys
 
-# 应纳税所得额 = 工资金额 － 各项社会保险费 - 起征点(3500元)
+# 应纳税所得额 = 工资金额 － 各项社会保险费 - 起征点(5000元)
 # 应纳税额 = 应纳税所得额 × 税率 － 速算扣除数
 
 
@@ -12,7 +12,7 @@ import sys
 失业保险：0.5%
 工伤保险：0%
 生育保险：0%
-公积金：6%
+公积金：10%
 '''
 
 
@@ -38,7 +38,7 @@ def tax(num,money):
         print("Parameter Error")
         return
     insurance = money * 0.165                 #计算五险一金
-    Taxable_Income = money - 3500 - insurance #应纳税额
+    Taxable_Income = money - 5000 - insurance #应纳税额
     if Taxable_Income <= 0:  #如果应纳税所得额为负则不需要纳税.应纳税所得额=0
         Taxable_Income = 0.00
     tax_rate, take_out = table(Taxable_Income)  # 计算税率和速扣
